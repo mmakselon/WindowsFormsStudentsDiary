@@ -1,0 +1,10 @@
+D:\VS\WindowsFormsStudentsDiary\WindowsFormsStudentsDiary\bin\Debug\WindowsFormsStudentsDiary.exe.config
+D:\VS\WindowsFormsStudentsDiary\WindowsFormsStudentsDiary\bin\Debug\WindowsFormsStudentsDiary.exe
+D:\VS\WindowsFormsStudentsDiary\WindowsFormsStudentsDiary\bin\Debug\WindowsFormsStudentsDiary.pdb
+D:\VS\WindowsFormsStudentsDiary\WindowsFormsStudentsDiary\obj\Debug\WindowsFormsStudentsDiary.csproj.AssemblyReference.cache
+D:\VS\WindowsFormsStudentsDiary\WindowsFormsStudentsDiary\obj\Debug\WindowsFormsStudentsDiary.Properties.Resources.resources
+D:\VS\WindowsFormsStudentsDiary\WindowsFormsStudentsDiary\obj\Debug\WindowsFormsStudentsDiary.csproj.GenerateResource.cache
+D:\VS\WindowsFormsStudentsDiary\WindowsFormsStudentsDiary\obj\Debug\WindowsFormsStudentsDiary.csproj.CoreCompileInputs.cache
+D:\VS\WindowsFormsStudentsDiary\WindowsFormsStudentsDiary\obj\Debug\WindowsFormsStudentsDiary.exe
+D:\VS\WindowsFormsStudentsDiary\WindowsFormsStudentsDiary\obj\Debug\WindowsFormsStudentsDiary.pdb
+D:\VS\WindowsFormsStudentsDiary\WindowsFormsStudentsDiary\obj\Debug\WindowsFormsStudentsDiary.Form1.resources
