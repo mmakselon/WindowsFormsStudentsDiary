@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,8 +15,22 @@ namespace WindowsFormsStudentsDiary
     {
         public Main()
         {
-            InitializeComponent();           
+            InitializeComponent();
+
+            var path = $@"{Path.GetDirectoryName(Application.ExecutablePath)}\..\NowyPlik2.txt";
+
+            if (!File.Exists(path))
+            {
+             File.Create(path);
+            }
+            //File.WriteAllText(path, "Zostań programistą .NET\n");
+            File.AppendAllText(path, "Zostań programistą .NET\n");
+
+            var text = File.ReadAllText(path);
+            MessageBox.Show(text);
         }
+
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
