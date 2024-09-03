@@ -8,28 +8,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace WindowsFormsStudentsDiary
 {
     public partial class Main : Form
     {
+        private string _filePath = Path.Combine(Environment.CurrentDirectory, "students.txt");
         public Main()
         {
             InitializeComponent();
 
-            var path = $@"{Path.GetDirectoryName(Application.ExecutablePath)}\..\NowyPlik2.txt";
-
-            if (!File.Exists(path))
-            {
-             File.Create(path);
-            }
-            //File.WriteAllText(path, "Zostań programistą .NET\n");
-            File.AppendAllText(path, "Zostań programistą .NET\n");
-
-            var text = File.ReadAllText(path);
-            MessageBox.Show(text);
         }
 
+        public void SerializeToFile(List<Student>students)
+        {
+            var serialized = new XmlSerializer(typeof(List<Student>));
+            StreamWriter streamWriter = null;
+
+            try
+            {
+                streamWriter = new StreamWriter(_filePath);
+                serialized.Serialize(streamWriter, students);
+                streamWriter.Close();
+                streamWriter.Dispose();
+            }
+            finally
+            {
+                streamWriter.Dispose();
+            }
+        }
 
 
         private void btnAdd_Click(object sender, EventArgs e)
