@@ -21,7 +21,7 @@ namespace WindowsFormsStudentsDiary
 
         }
 
-        public void SerializeToFile(List<Student>students)
+        /*public void SerializeToFile(List<Student>students)
         {
             var serialized = new XmlSerializer(typeof(List<Student>));
             StreamWriter streamWriter = null;
@@ -37,8 +37,19 @@ namespace WindowsFormsStudentsDiary
             {
                 streamWriter.Dispose();
             }
-        }
+        }*/
 
+        public void SerializeToFile(List<Student> students)
+        {
+            var serialized = new XmlSerializer(typeof(List<Student>));
+
+            //jeśli w using jest deklaracja obiektu to za każdym razem zostanie na końcu wykonana metoda dispose
+            using (var streamWriter = new StreamWriter(_filePath))
+            {
+                serialized.Serialize(streamWriter, students);
+                streamWriter.Close();
+            }
+        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
