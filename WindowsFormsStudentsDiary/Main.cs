@@ -51,6 +51,21 @@ namespace WindowsFormsStudentsDiary
             }
         }
 
+        public List<Student> DeserializeFromFile()
+        {
+            if (File.Exists(_filePath))
+                return new List<Student>();
+
+            var serializer = new XmlSerializer(typeof(List<Student>));
+
+            using (var streamReader = new StreamReader(_filePath))
+            {
+                var students = (List<Student>)serializer.Deserialize(streamReader);//rzutowanie na listę studentów
+                streamReader.Close();
+                return students;
+            }
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
