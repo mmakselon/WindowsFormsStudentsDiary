@@ -19,6 +19,18 @@ namespace WindowsFormsStudentsDiary
         {
             InitializeComponent();
 
+            //var students = new List<Student>();
+            //students.Add(new Student { FirstName = "Jan" });
+            //students.Add(new Student { FirstName = "Joanna" });
+            //students.Add(new Student { FirstName = "Marek" });
+
+            //SerializeToFile(students);
+
+            var students = DeserializeFromFile();
+            foreach(var student in students)
+            {
+                MessageBox.Show(student.FirstName);
+            }
         }
 
         /*public void SerializeToFile(List<Student>students)
