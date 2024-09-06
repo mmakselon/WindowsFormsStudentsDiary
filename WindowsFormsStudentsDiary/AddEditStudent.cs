@@ -35,7 +35,7 @@ namespace WindowsFormsStudentsDiary
 
         public List<Student> DeserializeFromFile()
         {
-            if (File.Exists(_filePath))
+            if (!File.Exists(_filePath))
                 return new List<Student>();
 
             var serializer = new XmlSerializer(typeof(List<Student>));

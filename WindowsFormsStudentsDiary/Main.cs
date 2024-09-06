@@ -44,26 +44,27 @@ namespace WindowsFormsStudentsDiary
 
         public void SerializeToFile(List<Student> students)
         {
-            var serialized = new XmlSerializer(typeof(List<Student>));
+            var serializer = new XmlSerializer(typeof(List<Student>));
 
             //jeśli w using jest deklaracja obiektu to za każdym razem zostanie na końcu wykonana metoda dispose
             using (var streamWriter = new StreamWriter(_filePath))
             {
-                serialized.Serialize(streamWriter, students);
+                serializer.Serialize(streamWriter, students);
                 streamWriter.Close();
             }
         }
             
         public List<Student> DeserializeFromFile()
         {
-            if (File.Exists(_filePath))
+            if (!File.Exists(_filePath))
                 return new List<Student>();
 
             var serializer = new XmlSerializer(typeof(List<Student>));
 
             using (var streamReader = new StreamReader(_filePath))
             {
-                var students = (List<Student>)serializer.Deserialize(streamReader);//rzutowanie na listę studentów
+                //rzutowanie na listę studentów
+                var students = (List<Student>)serializer.Deserialize(streamReader);
                 streamReader.Close();
                 return students;
             }
