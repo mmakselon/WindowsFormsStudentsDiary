@@ -90,7 +90,6 @@ namespace WindowsFormsStudentsDiary
         {
             var students = DeserializeFromFile();
             dgvDiary.DataSource = students;
-
         }
     }
 }
