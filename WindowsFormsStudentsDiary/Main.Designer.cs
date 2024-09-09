@@ -41,7 +41,7 @@ namespace WindowsFormsStudentsDiary
             // 
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnAdd.Location = new System.Drawing.Point(9, 10);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(56, 28);
             this.btnAdd.TabIndex = 0;
@@ -53,7 +53,7 @@ namespace WindowsFormsStudentsDiary
             // 
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnEdit.Location = new System.Drawing.Point(70, 10);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(56, 28);
             this.btnEdit.TabIndex = 1;
@@ -65,7 +65,7 @@ namespace WindowsFormsStudentsDiary
             // 
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDelete.Location = new System.Drawing.Point(130, 10);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(56, 28);
             this.btnDelete.TabIndex = 2;
@@ -78,7 +78,7 @@ namespace WindowsFormsStudentsDiary
             // 
             this.btnRefresh.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnRefresh.Location = new System.Drawing.Point(191, 10);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(56, 28);
             this.btnRefresh.TabIndex = 3;
@@ -91,30 +91,33 @@ namespace WindowsFormsStudentsDiary
             this.dgvDiary.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDiary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDiary.BackgroundColor = System.Drawing.Color.White;
             this.dgvDiary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDiary.Location = new System.Drawing.Point(7, 42);
-            this.dgvDiary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDiary.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDiary.Name = "dgvDiary";
+            this.dgvDiary.RowHeadersVisible = false;
             this.dgvDiary.RowHeadersWidth = 51;
             this.dgvDiary.RowTemplate.Height = 24;
-            this.dgvDiary.Size = new System.Drawing.Size(582, 306);
+            this.dgvDiary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDiary.Size = new System.Drawing.Size(968, 306);
             this.dgvDiary.TabIndex = 4;
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(986, 366);
             this.Controls.Add(this.dgvDiary);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "Main";
+            this.Text = "Dziennik ucznia";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiary)).EndInit();
             this.ResumeLayout(false);
 
