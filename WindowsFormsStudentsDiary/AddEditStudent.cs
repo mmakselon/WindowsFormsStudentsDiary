@@ -20,6 +20,8 @@ namespace WindowsFormsStudentsDiary
         public AddEditStudent(int id = 0)
         {
             InitializeComponent();
+            _studentId = id;
+
             if(id!=0)
             {
                 var students = DeserializeFromFile();
@@ -36,10 +38,6 @@ namespace WindowsFormsStudentsDiary
                 tbPolishLang.Text = student.PolishLang;
                 tbForeignLang.Text = student.ForeignLang;
                 rtbComments.Text = student.Comments;
-
-
-
-
             }
         }
 
@@ -80,12 +78,12 @@ namespace WindowsFormsStudentsDiary
             }
             else
             {
-                var studentWithHighestId = students.OrderByDescending(x => x.Id).FirstOrDefault();
+                var studentWithHighestId = students
+                    .OrderByDescending(x => x.Id).FirstOrDefault();
 
-                _studentId = studentWithHighestId == null ? 1 : studentWithHighestId.Id + 1;
+                _studentId = studentWithHighestId == null ?
+                    1 : studentWithHighestId.Id + 1;
             }
-
-
 
             var student = new Student
             {
