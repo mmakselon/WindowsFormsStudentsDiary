@@ -91,7 +91,27 @@ namespace WindowsFormsStudentsDiary
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (dgvDiary.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Proszę zaznacz ucznia, którego chcesz usunąć");
+                return;
+            }
+            var selectedStudent = dgvDiary.SelectedRows[0];
 
+            var confirmDelete = 
+                MessageBox.Show($"Czy na pewno chcesz usunąć ucznia {(selectedStudent.Cells[1].Value.ToString() + " " + selectedStudent.Cells[2].Value.ToString()).Trim()}",
+                "Usuwanie ucznia",
+                MessageBoxButtons.OKCancel);
+
+            if (confirmDelete == DialogResult.OK)
+            {
+                var students = DeserializeFromFile();
+                students.RemoveAll(x =>
+                x.Id == Convert.ToInt32(selectedStudent.Cells[0].Value));
+
+                SerializeToFile(students);
+                dgvDiary.DataSource = students; 
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
