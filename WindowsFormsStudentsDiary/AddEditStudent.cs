@@ -56,17 +56,13 @@ namespace WindowsFormsStudentsDiary
         {
             var students = _fileHelper.DeserializeFromFile();
 
-            if (_studentId!=0)
+            if (_studentId != 0)
             {
                 students.RemoveAll(x => x.Id == _studentId);
             }
             else
             {
-                var studentWithHighestId = students
-                    .OrderByDescending(x => x.Id).FirstOrDefault();
-
-                _studentId = studentWithHighestId == null ?
-                    1 : studentWithHighestId.Id + 1;
+                AssignIdToNewStudent(students);
             }
 
             var student = new Student
@@ -87,6 +83,15 @@ namespace WindowsFormsStudentsDiary
             _fileHelper.SerializeToFile(students);
 
             Close();
+        }
+
+        private void AssignIdToNewStudent(List<Student> students)
+        {
+            var studentWithHighestId = students
+    .OrderByDescending(x => x.Id).FirstOrDefault();
+
+            _studentId = studentWithHighestId == null ?
+                1 : studentWithHighestId.Id + 1;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
