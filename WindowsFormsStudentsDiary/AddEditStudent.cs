@@ -57,14 +57,20 @@ namespace WindowsFormsStudentsDiary
             var students = _fileHelper.DeserializeFromFile();
 
             if (_studentId != 0)
-            {
                 students.RemoveAll(x => x.Id == _studentId);
-            }
             else
-            {
                 AssignIdToNewStudent(students);
-            }
 
+
+            AddNewUserToList(students);
+
+            _fileHelper.SerializeToFile(students);
+
+            Close();
+        }
+
+        private void AddNewUserToList(List<Student> students)
+        {
             var student = new Student
             {
                 Id = _studentId,
@@ -79,10 +85,6 @@ namespace WindowsFormsStudentsDiary
             };
 
             students.Add(student);
-
-            _fileHelper.SerializeToFile(students);
-
-            Close();
         }
 
         private void AssignIdToNewStudent(List<Student> students)

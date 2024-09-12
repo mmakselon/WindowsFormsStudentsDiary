@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace WindowsFormsStudentsDiary
@@ -14,6 +15,12 @@ namespace WindowsFormsStudentsDiary
             InitializeComponent();
             RefreshDiary();
             SetColumnHeader();
+
+            var list = new List<int> { 2,6,22,678,5,267};
+            var list2 = from x in list
+                         where x > 10
+                         select x;
+
         }
 
         private void RefreshDiary()
