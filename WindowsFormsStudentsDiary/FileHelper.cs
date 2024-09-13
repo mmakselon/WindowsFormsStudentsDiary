@@ -39,7 +39,7 @@ namespace WindowsFormsStudentsDiary
             using (var streamReader = new StreamReader(_filePath))
             {
                 //rzutowanie na listę studentów
-                var students = (List<Student>)serializer.Deserialize(streamReader);
+                var students = (T)serializer.Deserialize(streamReader);
                 streamReader.Close();
                 return students;
             }
