@@ -58,7 +58,14 @@ namespace WindowsFormsStudentsDiary
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var addEditStudent = new AddEditStudent();
+            addEditStudent.StudentAdded += AddEditStudent_StudentAdded;
             addEditStudent.ShowDialog();
+            addEditStudent.StudentAdded -= AddEditStudent_StudentAdded;
+        }
+
+        private void AddEditStudent_StudentAdded()
+        {
+            RefreshDiary();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -107,9 +114,5 @@ namespace WindowsFormsStudentsDiary
             RefreshDiary();
         }
 
-        private void btnAdd_MouseEnter(object sender, EventArgs e)
-        {
-            MessageBox.Show("MouseEnter");
-        }
     }
 }
