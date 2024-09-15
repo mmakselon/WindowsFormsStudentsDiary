@@ -109,7 +109,7 @@ namespace WindowsFormsStudentsDiary
 
         private void btnAdd_MouseEnter(object sender, EventArgs e)
         {
-            MessageBox.Show("MousEnter");
+            MessageBox.Show("MouseEnter");
         }
     }
 }

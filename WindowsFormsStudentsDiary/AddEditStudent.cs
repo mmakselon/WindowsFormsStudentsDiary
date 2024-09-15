@@ -8,6 +8,9 @@ namespace WindowsFormsStudentsDiary
 {
     public partial class AddEditStudent : Form
     {
+        public delegate void MySimpleDelegate();
+        public event MySimpleDelegate StudentAdded;
+
         private int _studentId;
         private Student _student;
 
@@ -21,6 +24,11 @@ namespace WindowsFormsStudentsDiary
 
             GetStudentData();
             tbFirstName.Select();
+        }
+
+        private void OnStudentAdded()
+        {
+            StudentAdded?.Invoke();
         }
 
         private void GetStudentData()
@@ -65,6 +73,8 @@ namespace WindowsFormsStudentsDiary
             AddNewUserToList(students);
 
             _fileHelper.SerializeToFile(students);
+
+            OnStudentAdded();
 
             Close();
         }
