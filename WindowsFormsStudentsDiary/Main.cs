@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using WindowsFormsStudentsDiary.Properties;
 
 namespace WindowsFormsStudentsDiary
 {
@@ -10,11 +11,29 @@ namespace WindowsFormsStudentsDiary
         private FileHelper<List<Student>> _fileHelper =
             new FileHelper<List<Student>>(Program.FilePath);
 
+        public bool IsMaximize
+        {
+            get
+            {
+                return Settings.Default.IsMaximize;
+            }
+            set
+            {
+                Settings.Default.IsMaximize= value;
+            }
+        }
+
         public Main()
         {
             InitializeComponent();
             RefreshDiary();
+
             SetColumnHeader();
+
+            if (IsMaximize)
+            {
+                WindowState = FormWindowState.Maximized;
+            }
         }
 
         private void RefreshDiary()
@@ -114,5 +133,14 @@ namespace WindowsFormsStudentsDiary
             RefreshDiary();
         }
 
+        private void Main_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized)
+                IsMaximize = true;
+            else
+                IsMaximize = false;
+
+            Settings.Default.Save();
+        }
     }
 }
