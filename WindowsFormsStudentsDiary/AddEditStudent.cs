@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsStudentsDiary
@@ -53,7 +55,7 @@ namespace WindowsFormsStudentsDiary
             rtbComments.Text = _student.Comments;
         }
 
-        private void btnConfirm_Click(object sender, EventArgs e)
+        private async void btnConfirm_Click(object sender, EventArgs e)
         {
             var students = _fileHelper.DeserializeFromFile();
 
@@ -67,7 +69,20 @@ namespace WindowsFormsStudentsDiary
 
             _fileHelper.SerializeToFile(students);
 
+            await LongProcessAsync();
+
             Close();
+        }
+
+        private async Task LongProcessAsync()
+        {
+            //var action = new Action(ActionDelegateMethod);
+            //Task.Run(action);
+
+            await Task.Run(() =>
+            {
+                Thread.Sleep(3000);
+            });
         }
 
         private void AddNewUserToList(List<Student> students)
