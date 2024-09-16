@@ -12,5 +12,6 @@ namespace WindowsFormsStudentsDiary
         public string Physics { get; set; }
         public string PolishLang { get; set; }
         public string ForeignLang { get; set; }
+        public bool ExtraActivites { get; set; }
     }    
 }

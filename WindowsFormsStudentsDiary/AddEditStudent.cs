@@ -53,6 +53,7 @@ namespace WindowsFormsStudentsDiary
             tbPolishLang.Text = _student.PolishLang;
             tbForeignLang.Text = _student.ForeignLang;
             rtbComments.Text = _student.Comments;
+            cbExtraActivites.Checked = _student.ExtraActivites;
         }
 
         private async void btnConfirm_Click(object sender, EventArgs e)
@@ -97,7 +98,8 @@ namespace WindowsFormsStudentsDiary
                 Math = tbMath.Text,
                 Physics = tbPhisycs.Text,
                 PolishLang = tbPolishLang.Text,
-                Technology = tbTechnology.Text
+                Technology = tbTechnology.Text,
+                ExtraActivites = cbExtraActivites.Checked
             };
 
             students.Add(student);
@@ -116,5 +118,6 @@ namespace WindowsFormsStudentsDiary
         {
             Close();
         }
+
     }
 }

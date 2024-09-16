@@ -19,7 +19,7 @@ namespace WindowsFormsStudentsDiary
             }
             set
             {
-                Settings.Default.IsMaximize= value;
+                Settings.Default.IsMaximize = value;
             }
         }
 
@@ -53,6 +53,7 @@ namespace WindowsFormsStudentsDiary
             dgvDiary.Columns[6].HeaderText = "Fizyka";
             dgvDiary.Columns[7].HeaderText = "Język polski";
             dgvDiary.Columns[8].HeaderText = "Język obcy";
+            dgvDiary.Columns[9].HeaderText = "Zajęcia dodatkowe";
         }
 
         /*public void SerializeToFile(List<Student>students)
@@ -73,7 +74,7 @@ namespace WindowsFormsStudentsDiary
             }
         }*/
 
-        
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var addEditStudent = new AddEditStudent();
@@ -88,7 +89,7 @@ namespace WindowsFormsStudentsDiary
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dgvDiary.SelectedRows.Count==0)
+            if (dgvDiary.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Proszę zaznacz ucznia, którego dane chcesz edytować");
                 return;
@@ -109,7 +110,7 @@ namespace WindowsFormsStudentsDiary
             }
             var selectedStudent = dgvDiary.SelectedRows[0];
 
-            var confirmDelete = 
+            var confirmDelete =
                 MessageBox.Show($"Czy na pewno chcesz usunąć ucznia {(selectedStudent.Cells[1].Value.ToString() + " " + selectedStudent.Cells[2].Value.ToString()).Trim()}",
                 "Usuwanie ucznia",
                 MessageBoxButtons.OKCancel);
