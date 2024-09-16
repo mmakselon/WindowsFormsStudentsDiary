@@ -13,5 +13,6 @@ namespace WindowsFormsStudentsDiary
         public string PolishLang { get; set; }
         public string ForeignLang { get; set; }
         public bool ExtraActivites { get; set; }
+        public int GroupId { get; set; }
     }    
 }

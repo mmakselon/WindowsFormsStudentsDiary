@@ -54,6 +54,7 @@ namespace WindowsFormsStudentsDiary
             dgvDiary.Columns[7].HeaderText = "Język polski";
             dgvDiary.Columns[8].HeaderText = "Język obcy";
             dgvDiary.Columns[9].HeaderText = "Zajęcia dodatkowe";
+            dgvDiary.Columns[10].HeaderText = "Klasa";
         }
 
         /*public void SerializeToFile(List<Student>students)

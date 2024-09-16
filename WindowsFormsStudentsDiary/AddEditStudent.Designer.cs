@@ -50,6 +50,8 @@ namespace WindowsFormsStudentsDiary
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.cbExtraActivites = new System.Windows.Forms.CheckBox();
+            this.cmbGroupId = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbId
@@ -191,7 +193,7 @@ namespace WindowsFormsStudentsDiary
             // 
             // rtbComments
             // 
-            this.rtbComments.Location = new System.Drawing.Point(112, 238);
+            this.rtbComments.Location = new System.Drawing.Point(112, 271);
             this.rtbComments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rtbComments.Name = "rtbComments";
             this.rtbComments.Size = new System.Drawing.Size(269, 144);
@@ -201,7 +203,7 @@ namespace WindowsFormsStudentsDiary
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 238);
+            this.label8.Location = new System.Drawing.Point(12, 274);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 17);
             this.label8.TabIndex = 17;
@@ -210,7 +212,7 @@ namespace WindowsFormsStudentsDiary
             // btnConfirm
             // 
             this.btnConfirm.BackColor = System.Drawing.Color.YellowGreen;
-            this.btnConfirm.Location = new System.Drawing.Point(277, 426);
+            this.btnConfirm.Location = new System.Drawing.Point(277, 450);
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(104, 32);
@@ -222,7 +224,7 @@ namespace WindowsFormsStudentsDiary
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Red;
-            this.btnCancel.Location = new System.Drawing.Point(165, 426);
+            this.btnCancel.Location = new System.Drawing.Point(165, 450);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(107, 32);
@@ -234,18 +236,39 @@ namespace WindowsFormsStudentsDiary
             // cbExtraActivites
             // 
             this.cbExtraActivites.AutoSize = true;
-            this.cbExtraActivites.Location = new System.Drawing.Point(112, 387);
+            this.cbExtraActivites.Location = new System.Drawing.Point(112, 420);
             this.cbExtraActivites.Name = "cbExtraActivites";
             this.cbExtraActivites.Size = new System.Drawing.Size(148, 21);
             this.cbExtraActivites.TabIndex = 20;
             this.cbExtraActivites.Text = "Zajęcia dodatkowe";
             this.cbExtraActivites.UseVisualStyleBackColor = true;
             // 
+            // cmbGroupId
+            // 
+            this.cmbGroupId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGroupId.FormattingEnabled = true;
+            this.cmbGroupId.Location = new System.Drawing.Point(112, 238);
+            this.cmbGroupId.Name = "cmbGroupId";
+            this.cmbGroupId.Size = new System.Drawing.Size(269, 24);
+            this.cmbGroupId.TabIndex = 21;
+            this.cmbGroupId.SelectedIndexChanged += new System.EventHandler(this.cbGroupId_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 241);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(47, 17);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Klasa:";
+            // 
             // AddEditStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 469);
+            this.ClientSize = new System.Drawing.Size(412, 493);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.cmbGroupId);
             this.Controls.Add(this.cbExtraActivites);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
@@ -268,8 +291,8 @@ namespace WindowsFormsStudentsDiary
             this.Controls.Add(this.lbId);
             this.Controls.Add(this.tbId);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximumSize = new System.Drawing.Size(430, 516);
-            this.MinimumSize = new System.Drawing.Size(430, 516);
+            this.MaximumSize = new System.Drawing.Size(430, 540);
+            this.MinimumSize = new System.Drawing.Size(430, 540);
             this.Name = "AddEditStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodawanie ucznia";
@@ -301,5 +324,7 @@ namespace WindowsFormsStudentsDiary
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.CheckBox cbExtraActivites;
+        private System.Windows.Forms.ComboBox cmbGroupId;
+        private System.Windows.Forms.Label label9;
     }
 }

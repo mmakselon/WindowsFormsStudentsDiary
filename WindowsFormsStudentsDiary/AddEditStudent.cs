@@ -13,6 +13,7 @@ namespace WindowsFormsStudentsDiary
 
         private int _studentId;
         private Student _student;
+        private List<Group> _groups;
 
         private FileHelper<List<Student>> _fileHelper =
             new FileHelper<List<Student>>(Program.FilePath);
@@ -21,9 +22,28 @@ namespace WindowsFormsStudentsDiary
         {
             InitializeComponent();
             _studentId = id;
+            
+            _groups = new List<Group>
+            {
+                new Group { Id = 1, Name = "1a"},
+                new Group { Id = 2, Name = "1b"}
+            };
 
+            InitGroupsComboBox();
             GetStudentData();
             tbFirstName.Select();
+        }
+
+        private void InitGroupsComboBox()
+        {
+            cmbGroupId.DataSource = _groups;
+            cmbGroupId.DisplayMember = "Name";
+            cmbGroupId.ValueMember = "Id";
+        }
+
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void GetStudentData()
@@ -119,5 +139,9 @@ namespace WindowsFormsStudentsDiary
             Close();
         }
 
+        private void cbGroupId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
