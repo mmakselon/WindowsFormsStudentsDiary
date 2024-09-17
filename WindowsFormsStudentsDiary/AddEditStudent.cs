@@ -75,6 +75,7 @@ namespace WindowsFormsStudentsDiary
             tbForeignLang.Text = _student.ForeignLang;
             rtbComments.Text = _student.Comments;
             cbExtraActivites.Checked = _student.ExtraActivites;
+            cmbGroupId.SelectedItem = _groups.FirstOrDefault(a=>a.Id== _student.Id);
         }
 
         private async void btnConfirm_Click(object sender, EventArgs e)
@@ -91,7 +92,7 @@ namespace WindowsFormsStudentsDiary
 
             _fileHelper.SerializeToFile(students);
 
-            await LongProcessAsync();
+            //await LongProcessAsync();
 
             Close();
         }
@@ -120,7 +121,8 @@ namespace WindowsFormsStudentsDiary
                 Physics = tbPhisycs.Text,
                 PolishLang = tbPolishLang.Text,
                 Technology = tbTechnology.Text,
-                ExtraActivites = cbExtraActivites.Checked
+                ExtraActivites = cbExtraActivites.Checked,
+                GroupId = (cmbGroupId.SelectedItem as Group).Id
             };
 
             students.Add(student);

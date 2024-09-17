@@ -29,11 +29,17 @@ namespace WindowsFormsStudentsDiary
             RefreshDiary();
 
             SetColumnHeader();
+            HideColumns();
 
             if (IsMaximize)
             {
                 WindowState = FormWindowState.Maximized;
             }
+        }
+
+        private void HideColumns()
+        {
+            dgvDiary.Columns[10].Visible = false;
         }
 
         private void RefreshDiary()
