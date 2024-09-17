@@ -25,6 +25,7 @@ namespace WindowsFormsStudentsDiary
             
             _groups = new List<Group>
             {
+                new Group { Id = 0, Name = "Brak"},
                 new Group { Id = 1, Name = "1a"},
                 new Group { Id = 2, Name = "1b"}
             };
