@@ -39,7 +39,7 @@ namespace WindowsFormsStudentsDiary
 
         private void HideColumns()
         {
-            dgvDiary.Columns[10].Visible = false;
+            dgvDiary.Columns[nameof(Student.GroupId)].Visible = false;
         }
 
         private void RefreshDiary()
@@ -50,7 +50,7 @@ namespace WindowsFormsStudentsDiary
 
         private void SetColumnHeader()
         {
-            dgvDiary.Columns[0].HeaderText = "Numer";
+            dgvDiary.Columns[nameof(Student.Id)].HeaderText = "Numer";
             dgvDiary.Columns[1].HeaderText = "Imię";
             dgvDiary.Columns[2].HeaderText = "Nazwisko";
             dgvDiary.Columns[3].HeaderText = "Uwagi";
