@@ -10,6 +10,7 @@ namespace WindowsFormsStudentsDiary
     {
         private FileHelper<List<Student>> _fileHelper =
             new FileHelper<List<Student>>(Program.FilePath);
+        private List<Group> _groups;
 
         public bool IsMaximize
         {
@@ -26,8 +27,11 @@ namespace WindowsFormsStudentsDiary
         public Main()
         {
             InitializeComponent();
+            
+            _groups = GroupsHelper.GetGroups("Wszyscy");
             RefreshDiary();
 
+            InitGroupsComboBox();
             SetColumnHeader();
             HideColumns();
 
@@ -35,6 +39,13 @@ namespace WindowsFormsStudentsDiary
             {
                 WindowState = FormWindowState.Maximized;
             }
+        }
+
+        private void InitGroupsComboBox()
+        {
+            cmbGroups.DataSource = _groups;
+            cmbGroups.DisplayMember = "Name";
+            cmbGroups.ValueMember = "Id";
         }
 
         private void HideColumns()
