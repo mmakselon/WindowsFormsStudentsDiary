@@ -27,11 +27,11 @@ namespace WindowsFormsStudentsDiary
         public Main()
         {
             InitializeComponent();
-            
+
             _groups = GroupsHelper.GetGroups("Wszyscy");
+            InitGroupsComboBox();
             RefreshDiary();
 
-            InitGroupsComboBox();
             SetColumnHeader();
             HideColumns();
 
@@ -56,6 +56,13 @@ namespace WindowsFormsStudentsDiary
         private void RefreshDiary()
         {
             var students = _fileHelper.DeserializeFromFile();
+            var selectedGroupId = (cmbGroups.SelectedItem as Group).Id;
+
+            if (selectedGroupId != 0)
+                students = students
+                    .Where(x => x.GroupId == selectedGroupId)
+                    .ToList();
+
             dgvDiary.DataSource = students;
         }
 
